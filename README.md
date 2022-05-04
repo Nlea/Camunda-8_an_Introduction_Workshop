@@ -7,3 +7,13 @@ This repo contains exercises for a n Introduction Workshop about Camunda 8.
 **Structure:**  
 The Workshop is designed as an Onside Class. You can follow the exercises in the Readme. 
 The soltion folder contains the solution for each exercise and a more detailed description on how to solve the exercises. 
+
+## Exercise 1: Sign up and create a cluster
+
+## Exercise 2: Build a process (Web Modeler)
+
+## Exercise 3: Make the process executable
+
+## Exercise 4: Service Tasks (Connectors and job workers)
+
+## Exercise 5: Dynamic event handeling
