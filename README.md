@@ -6,9 +6,20 @@ This repo contains exercises for a n Introduction Workshop about [Camunda 8](htt
 
 **Structure:**  
 The Workshop is designed as an Onside Class. You can follow the exercises in the Readme. 
-The soltion folder contains the solution for each exercise and a more detailed description on how to solve the exercises. 
+The solution folder contains the solution for each exercise and a more detailed description on how to solve the exercises. 
 
 ## Exercise 1: Sign up and create a cluster
+
+This workshop uses Camunda Platform 8 SaaS and so the good news is that you don't have to install anything locally, but you do need to sign up for an account which is free and can be done by following [this link](https://accounts.cloud.camunda.io/signup). 
+
+Once you're signed up you can login to your account at [camunda.io](https://weblogin.cloud.camunda.io). 
+
+Once you're logged into your dashboard simply [follow these instructions](https://docs.camunda.io/docs/components/console/manage-clusters/create-cluster/) in our documenting. 
+
+
+You'll know you've succeed when your cluster is setup and all the traffic lights are green. 
+
+![Cluster Worker](img/clustersetup.png)
 
 ## Exercise 2: Build a process (Web Modeler)
 :trophy: Goal of this exercises is to model a BPMN diagram in the Camunda [Webmodeler](https://docs.camunda.io/docs/components/modeler/web-modeler/new-web-modeler/)
