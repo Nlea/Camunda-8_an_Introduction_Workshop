@@ -27,9 +27,9 @@ You'll know you've succeed when your cluster is setup and all the traffic lights
 **Process Description**
 Imagine a known Food Delivery Service with the roles customer, restaurant and driver. Model the process of ordering food from the perspective of the delivery service. Start simple: Limit your model to 3 user tasks and at least one XOR gateway. 
 
-You can find a sample solution [here](https://github.com/Nlea/Camunda-8_an_Introduction_Workshop/blob/main/Solution/Exercise02/delivery-process.bpmn)
+You can find a sample solution [here](Solution/02/02.bpmn)
 
-:tada: You have modeled a BPMN diagramm in the Camunda Webmodeler
+:tada: You have modeled a BPMN diagram in the Camunda Webmodeler
 
 ## Exercise 3: Make the process executable
 
@@ -41,11 +41,17 @@ Since our process is mostly User Tasks we should create a nice front end for tho
 
 1. Make sure you're in the same directory as your process model
 1. Click `New` and select form.
-1. You can drag Elements from the libary on the left
+1. You can drag Elements from the library on the left
 1. Add properties using the panel on the right.
 
 You need to create a form for each user task. 
 Think about the variables and options a user would need to see or add at each point of the process. 
+
+**Important:** 
+
+* Make sure to include a name and a email address for the task "Enter order". We need this information later on
+* Make sure the task "Accept order" include a variable like ```acceptedRestaurant``` We need this value to route the process later 
+
 Once all of the forms have been built we can go back to the BPMN model and attach them
 
 **Adding BPMN Execution Semantics**
@@ -54,8 +60,57 @@ For each form you've built you'll need to attach it to the corresponding task yo
 
 ![form](img/connectform.png)
 
+**Adding other technical attributes**
+
+In order to make the process executable we also have to set expressions at the outgoing sequence flows from the XOR gateway using the FEEL (Friendly enough expression language). Select the sequence flow with 'Yes' and add ```=acceptedRestaurant =true``` for the 'No' Path use: ```=acceptedRestaurant =false```
+
+
 
 
 ## Exercise 4: Service Tasks (Connectors and job workers)
+So far so good. Let's change the model slightly. after a customer has entered the order we want to check in parallel the weather. If the weather is bad we would like to inform our customer that it will take longer. Model the logic into your bpmn process. You can find the solution [here](Solution/Exercise04/04.bpmn). 
+
+### Using Camunda 8 Connectors
+Please note: In the model you will see two Service Task. In the following exercise we want to use Camunda 8 Connectors to implement the logic. Connectors are only available in the Web Modeler.
+
+For the "check weather" task we want to use a REST connector (No Auth). There is an extra symbol on the context pad that allows you to open the connector catalog:
+
+![Connector Catalog](img/connector-catalog.png)
+
+For the "Send information" task we want to use the SendGrid Email Connector. 
+
+In order to use the SendGrid Connector you need an API key. No worries in the workshop we will provide you the credentials. 
+
+:bangbang: Never store the API key in the XML of the BPMN. So don't paste this information into the properties panel. 
+
+Go to your cluster and navigate to "Connector Secrets". 
+![Connector Secrets](img/connector-secrets.png)
+
+Create a new secret for your Sendgrid API key. Now you can reference your secret in the properties panel: 
+
+![Properties for the Send Grid Connector](img/sendGridConnector.png)
+
+The nice thing is, we can use FEEL to access the secret value as well as the name and the email variable. 
+
+### Job Workers (:star2: optional task)
+
+If you like to build and code a job worker. You can adjust your BPMN model and add an additional task after the driver has accepted the delivery. This task will calculate the estimated delivery time. You can check the model out [here](Solution/04/04-with-job-worker.bpmn). Make sure to set the type in the property panel to something like: ```estimatedDeliveryTime```
+
+Now you can build a Job Worker and run the Job Worker locally on your machine. 
+
+The following steps are needed: 
+
+* [Create a client](https://docs.camunda.io/docs/components/console/manage-clusters/manage-api-clients/#create-a-client) in Camunda Cloud
+* Select a [job client](https://docs.camunda.io/docs/apis-clients/overview/) to implement your job worker
+* Follow the ReadMe of the client to implement the worker:
+    * Ensure the "type" matches to the one in your model
+    * Use your Camunda client credentials in order to connect your client
+
+
+
+
+
+
+
 
 ## Exercise 5: Dynamic event handeling
