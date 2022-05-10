@@ -25,13 +25,36 @@ You'll know you've succeed when your cluster is setup and all the traffic lights
 :trophy: Goal of this exercises is to model a BPMN diagram in the Camunda [Webmodeler](https://docs.camunda.io/docs/components/modeler/web-modeler/new-web-modeler/)
 
 **Process Description**
-Imagine a known Food Delivery Service with the roles customer, restaurant and driver. Model the process of ordering food from the perspective of the delivery service. Start simple: Limit your model to 3 user tasks. 
+Imagine a known Food Delivery Service with the roles customer, restaurant and driver. Model the process of ordering food from the perspective of the delivery service. Start simple: Limit your model to 3 user tasks and at least one XOR gateway. 
 
 You can find a sample solution [here](https://github.com/Nlea/Camunda-8_an_Introduction_Workshop/blob/main/Solution/Exercise02/delivery-process.bpmn)
 
 :tada: You have modeled a BPMN diagramm in the Camunda Webmodeler
 
 ## Exercise 3: Make the process executable
+
+:trophy: The Goal of this exercises is to add all required execution semantics to your model and deploy it. 
+
+**Building Forms** 
+
+Since our process is mostly User Tasks we should create a nice front end for those users to enjoy. We can do that using the Web Modeler's form builder. 
+
+1. Make sure you're in the same directory as your process model
+1. Click `New` and select form.
+1. You can drag Elements from the libary on the left
+1. Add properties using the panel on the right.
+
+You need to create a form for each user task. 
+Think about the variables and options a user would need to see or add at each point of the process. 
+Once all of the forms have been built we can go back to the BPMN model and attach them
+
+**Adding BPMN Execution Semantics**
+
+For each form you've built you'll need to attach it to the corresponding task you can do this by selecting the user task and clicking the form button
+
+![form](img/connectform.png)
+
+
 
 ## Exercise 4: Service Tasks (Connectors and job workers)
 
