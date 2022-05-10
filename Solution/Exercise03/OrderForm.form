@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 2,
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.0.0-alpha.1"
+  },
+  "components": [
+    {
+      "label": "Name",
+      "type": "textfield",
+      "id": "Field_1ectu85",
+      "key": "name"
+    },
+    {
+      "label": "E-mail address",
+      "type": "textfield",
+      "id": "Field_1jf43aq",
+      "key": "mail"
+    },
+    {
+      "label": "Order",
+      "type": "textfield",
+      "id": "Field_0vueo4q",
+      "key": "order",
+      "description": "What do you like to order?"
+    }
+  ],
+  "type": "default",
+  "id": "Form_placeOrder",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "1.3.0"
+}
