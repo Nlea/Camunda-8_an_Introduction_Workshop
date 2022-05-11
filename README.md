@@ -113,4 +113,25 @@ The following steps are needed:
 
 
 
-## Exercise 5: Dynamic event handeling
+## Exercise 5: Dynamic event Handeling
+🏆 You're going to deal with potential errors and send an email when they occur.
+
+Any process needs to deal with unexpected errors, but processes with a lot of humans involved - doubly so! 
+
+One of the best ways to deal with process errors is to 
+use BPMN error events. These can be triggered in a number of ways for example if a specific task has taken too long and is no longer needed you can use a timer boundary event attached to an error event. This would cancel the task and throw a BPMN error
+
+![img](img/1errorThrow.png)
+
+In terms of execution you'd just need to a duration to the timer event e.g. `PT2H` and create an error definition for the error throw event. 
+
+![error](img/errorThrow.png)
+
+Once the error is thrown, it needs to be caught and delt with. 
+This is made quite easy with the awesome power of the event sub process 
+
+![eventsubprocess](img/eventSubProcess.png)
+
+You can then use the same send email task configuration to send an email as a response to the Error happening. 
+
+What you need to do now is look through the model and try to find at least 3 point in which an error could occur and using a error throw event and event sup-process catch those error and send an email to the person who made the order. 

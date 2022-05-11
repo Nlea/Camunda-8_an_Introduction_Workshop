@@ -1,0 +1,47 @@
+{
+  "components": [
+    {
+      "text": "# Your Order has Arrived!",
+      "type": "text",
+      "id": "Field_09w1qdu"
+    },
+    {
+      "label": "Your Name is",
+      "type": "textfield",
+      "id": "Field_168oj4v",
+      "key": "name",
+      "disabled": true
+    },
+    {
+      "label": "Your Order",
+      "type": "textfield",
+      "id": "Field_0g9e7oo",
+      "key": "order",
+      "disabled": true
+    },
+    {
+      "label": "Delivery Time",
+      "type": "textfield",
+      "id": "Field_0wfe4j3",
+      "key": "deliveryDuration",
+      "disabled": true,
+      "description": "This is how long the driver suspected they would take to bring you your order"
+    },
+    {
+      "label": "Accept Order?",
+      "type": "checkbox",
+      "id": "Field_0qomnx7",
+      "key": "acceptDeliveredOrder",
+      "description": "Tick if you accept the delivery"
+    }
+  ],
+  "type": "default",
+  "id": "ConfirmDeliveryForm",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.0.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.0.0"
+  },
+  "schemaVersion": 4
+}

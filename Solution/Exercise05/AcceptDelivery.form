@@ -1,0 +1,43 @@
+{
+  "components": [
+    {
+      "text": "# Ready to Deliver?",
+      "type": "text",
+      "id": "Field_0qxrybo"
+    },
+    {
+      "label": "Order Details",
+      "type": "textfield",
+      "id": "Field_15khuyt",
+      "key": "order",
+      "disabled": true
+    },
+    {
+      "label": "Location",
+      "type": "textfield",
+      "id": "Field_1t8y1j5",
+      "key": "location",
+      "disabled": true
+    },
+    {
+      "label": "How Many Minutes will it take?",
+      "type": "number",
+      "id": "Field_0rhtn86",
+      "key": "deliveryDuration",
+      "validate": {
+        "required": true,
+        "min": 1,
+        "max": 120
+      }
+    }
+  ],
+  "type": "default",
+  "id": "acceptDeliveryForm",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.0.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.0.0"
+  },
+  "schemaVersion": 4
+}
