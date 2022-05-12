@@ -73,9 +73,33 @@ So far so good. Let's change the model slightly. after a customer has entered th
 ### Using Camunda 8 Connectors
 Please note: In the model you will see two Service Task. In the following exercise we want to use Camunda 8 Connectors to implement the logic. Connectors are only available in the Web Modeler.
 
+### REST Connector
+
 For the "check weather" task we want to use a REST connector (No Auth). There is an extra symbol on the context pad that allows you to open the connector catalog:
 
 ![Connector Catalog](img/connector-catalog.png)
+
+Fill in the properties panel with the following information for the URL: 
+
+```https://www.7timer.info/bin/civillight.php?lon=52.5200&lat=13.4050&dataseries=1&ac=0&unit=metric&output=json&tzshift=0 ```
+
+This API returns a weather forecast for Berlin (I assume we all know that Berlin has the coordinates, long = 52.5200 and lat= 13.4050). 
+
+We just want to get the weather of today and store the first entry in the data series. Therefore we can use the following result expression :
+
+```
+=body.dataseries[1]
+```
+
+![REST Connector](img/RESTConnector.png)
+
+This will create the elements from the first dataseries element as process variables. Next we can use the generated variables to route the process. For us bad weather means rainy. Select the outgoing sequence flow after the XOR gateway and fill it in with the following expression: 
+
+```= contains(weather, "rainy")```
+
+You can make the other outgoing sequence flow a default flow. 
+
+### SendGrid Connector**
 
 For the "Send information" task we want to use the SendGrid Email Connector. 
 
