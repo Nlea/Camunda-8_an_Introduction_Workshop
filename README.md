@@ -1,6 +1,6 @@
 # Camunda 8: an Introduction Workshop
 
-This repo contains exercises for a n Introduction Workshop about [Camunda 8](https://camunda.com) SaaS. 
+This repo contains exercises for an Introduction Workshop about [Camunda 8](https://camunda.com) SaaS. 
 
 :trophy: The Goal of the workshop is to automate a simple process (containing [User Tasks](https://docs.camunda.io/docs/components/modeler/bpmn/user-tasks/), and Service Tasks implemented as [Connectors](https://docs.camunda.io/docs/components/modeler/web-modeler/connectors/) and [Job Workers](https://docs.camunda.io/docs/components/concepts/job-workers/))
 
@@ -27,7 +27,7 @@ You'll know you've succeed when your cluster is setup and all the traffic lights
 **Process Description**
 Imagine a known Food Delivery Service with the roles customer, restaurant and driver. Model the process of ordering food from the perspective of the delivery service. Start simple: Limit your model to 3 user tasks and at least one XOR gateway. 
 
-You can find a sample solution [here](Solution/02/02.bpmn)
+You can find a sample solution [here](Solution/Exercise02/02.bpmn)
 
 :tada: You have modeled a BPMN diagram in the Camunda Webmodeler
 
